@@ -41,23 +41,16 @@ node index.js
 You can modify the parameters in the example usage of calculateTotalTarget to calculate targets for different periods and target amounts.
 
 Example Usage
-Here’s an example to calculate the monthly targets for the period from January 1, 2024, to March 30, 2024, with an annual target of 5220:
+{ "daysWorkedExcludingFridays": [Number, ...],
+// Array of working days per month (excluding Fridays) "monthlyTargets": [Number, ...], 
+// Array of monthly targets for months with working days "totalTarget": Number //
+Sum of all the distributed monthly targets }
+Example javascript console.log(calculateTotalTarget('2024-01-01', '2024-03-31', 5220)); Output:
 
-javascript
-Copy code
-const result = calculateTotalTarget('2024-01-01', '2024-03-30', 5220);
-console.log(result);
-Example Output
-The result might look like this:
-
-json
-Copy code
-{
-  "daysExcludingFridays": [23, 21, 21],
-  "daysWorkedExcludingFridays": [23, 21, 21],
-  "monthlyTargets": [1203.33, 1098.57, 1098.57],
-  "totalTarget": 3398.47
-}
+json { "daysWorkedExcludingFridays": [ 22, // January 21, // February 21 // March ], "monthlyTargets":
+[ 435, // January 435, // February 435 // March ], "totalTarget": 1305 
+// Sum of monthly targets for January to March }
+ 
 Explanation:
 
 daysExcludingFridays: Total number of working days (excluding Fridays) for each month.
